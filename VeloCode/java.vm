@@ -1,0 +1,18 @@
+## This is an the velocity template
+## to generate a Java class
+
+public class $utility.firstToUpperCase($class.Name) {
+
+#foreach( $att in $class.Attributes)	
+	// $att.Name
+	private $att.Type $utility.firstToLowerCase($att.Name);
+	public $att.Type get$utility.firstToUpperCase($att.Name)() {
+		return this.$utility.firstToLowerCase($att.Name);
+	}	
+	public void set$utility.firstToUpperCase($att.Name)($att.Type $utility.firstToLowerCase($att.Name)) {
+		this.$utility.firstToLowerCase($att.Name) = $utility.firstToLowerCase($att.Name);
+	}
+	
+#end
+}
+

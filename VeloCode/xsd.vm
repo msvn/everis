@@ -1,0 +1,23 @@
+## This is an the velocity template
+## to generate a XSD schema
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.santander.com.br/EBO/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.santander.com.br/EBO/v1">
+
+    <complexType name="$utility.firstToUpperCase($class.Name)">
+    	<sequence>
+#foreach( $att in $class.Attributes)
+    		<element name="$utility.firstToUpperCase($att.Name)" type="$att.Type" maxOccurs="1" minOccurs="0"/>
+#end
+    	</sequence>
+    </complexType>
+
+    <element name="$utility.firstToUpperCase($class.Name)" type="ebo:$utility.firstToUpperCase($class.Name)"/>
+
+    <complexType name="$utility.firstToUpperCase($class.Name)List">
+    	<sequence>
+    		<element name="$utility.firstToUpperCase($class.Name)" type="ebo:$utility.firstToUpperCase($class.Name)" maxOccurs="unbounded" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <element name="$utility.firstToUpperCase($class.Name)List" type="ebo:$utility.firstToUpperCase($class.Name)List"/>
+</schema>

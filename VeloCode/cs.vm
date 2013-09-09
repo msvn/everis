@@ -1,0 +1,46 @@
+## This is an the velocity template
+## to generate a c# class
+// -----------------------------------------------------------------------
+// <copyright file="$utility.firstToUpperCase($class.Name)" company="everis">
+// Copyright © Copyright 2013 everis group
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Santander.Comex.Bol.Entities
+{
+    using System;
+
+    /// <summary>
+    /// Name: $class.Description    
+    /// Author: everis Archex    
+    /// Create date: $utility.now()
+    /// </summary>
+    /// Class marked as compliant.
+    [CLSCompliant(false)]  
+    public class $utility.firstToUpperCase($class.Name) : BaseEntity
+    {
+        #region Attributes
+#foreach( $att in $class.Attributes)    
+        
+        /// <summary>
+        /// $att.Type $att.Description        
+        /// </summary>
+        private $att.Type $utility.firstToLowerCase($att.Name);        
+#end
+        #endregion
+
+        #region Proprerties
+#foreach( $att in $class.Attributes)	
+
+        /// <summary>
+        /// Gets or sets $att.Description                
+        /// </summary>
+        public $att.Type $utility.firstToUpperCase($att.Name)
+        {
+            get { return this.$utility.firstToLowerCase($att.Name); }
+            set { this.$utility.firstToLowerCase($att.Name) = value; }
+        }
+#end
+        #endregion
+    }
+}
